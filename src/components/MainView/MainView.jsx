@@ -77,7 +77,7 @@ export default function MainView() {
 
   return (
     <div className={classes.root}>
-         <AppBar position="static" color="default">
+         <AppBar position="static" color="default" >
         <Box align="center" m={2}>Buy-A-Brew</Box>
         <Tabs
           value={view} 
@@ -90,17 +90,15 @@ export default function MainView() {
           <Tab icon={<DiscountIcon />}{...a11yProps(0)} />
           <Tab icon={<SearchIcon />} {...a11yProps(0)} />
         </Tabs>
-    
-
       </AppBar>
     <TabPanel value={view} index={0} m={0} p={0} dense>
      <SubViews /> 
     </TabPanel>
     <TabPanel value={view} index={1}>
-      Item Two
+    <SubViews /> 
     </TabPanel>
     <TabPanel value={view} index={2}>
-      Item Three
+    <SubViews /> 
     </TabPanel>
   </div>
   );

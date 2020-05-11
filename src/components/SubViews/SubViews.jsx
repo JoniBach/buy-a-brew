@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Paper from '@material-ui/core/Paper';
 
@@ -9,10 +9,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DrinkIcon from '@material-ui/icons/LocalBar';
-import FoodIcon from '@material-ui/icons/Restaurant';
-import DiscountIcon from '@material-ui/icons/MoneyOff';
-import SearchIcon from '@material-ui/icons/Search';
+import CustomCard from '../CustomCard/CustomCard'
+
+import { Grid, Card, CardContent, CardMedia } from '@material-ui/core';
+
+const innerTheme = createMuiTheme({
+    palette: {
+        type: 'light',
+    }
+});
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -51,6 +57,10 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
     },
+    media: {
+        height: 60,
+        paddingTop: '56.25%', // 16:9
+    },
 }));
 
 export default function MainView() {
@@ -63,8 +73,11 @@ export default function MainView() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const bull = <span className={classes.bullet}>•</span>;
+
 
     return (
+
         <div className={classes.root}>
 
             <Paper className={classes.root} >
@@ -80,25 +93,39 @@ export default function MainView() {
                     <Tab  {...a11yProps(0)} label="STEAK" />
                 </Tabs>
             </Paper>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={value}
-                onChangeIndex={handleChangeIndex}
-            >
-                <Box align="center" m={2}>
+            <ThemeProvider theme={innerTheme}>
 
+                <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
+                    style={{ backgroundColor: 'white' }}
+                >
+                    <Grid container spacing={3} >
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+                        <Grid item xs={4} ><CustomCard /></Grid>
+
+                    </Grid>
                     <TabPanel style={{ paddingLeft: 0, paddingRight: 0 }} value={value} index={0} dir={theme.direction}>
-                        All things
-                </TabPanel>
+
+                    </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
                         Some Beer
                 </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
                         Some Pizza
                 </TabPanel>
-                </Box>
 
-            </SwipeableViews>
+                </SwipeableViews>
+            </ThemeProvider>
 
 
 
