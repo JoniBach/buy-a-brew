@@ -23,6 +23,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Switch from '@material-ui/core/Switch';
 import Collapse from '@material-ui/core/Collapse';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+
 
 const innerTheme = createMuiTheme({
     palette: {
@@ -155,7 +157,8 @@ export default function MainView() {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [selectedBeerId, setSelectedBeerId] = React.useState(0);
-    const [open2, setOpen2] = React.useState(true);
+    const [ExpandDescription, setExpandDescription] = React.useState(true);
+    const [ExpandPairings, setExpandPairings] = React.useState(true);
 
     const handleClick = () => {
         setOpen(!open);
@@ -183,11 +186,15 @@ export default function MainView() {
         // setSelectedBeerId(0);        
 
     };
+    const [selectedShowDescription, setSelectedShowDescription] = React.useState(false);
 
-    const [checked, setChecked] = React.useState(false);
+    const [selectedShowPairings, setSelectedShowPairings] = React.useState(false);
 
-    const handleCollapse = () => {
-        setChecked((prev) => !prev);
+    const handleCollapseDescription = () => {
+        setSelectedShowDescription((prev) => !prev);
+    };
+    const handleCollapseDPairings = () => {
+        setSelectedShowPairings((prev) => !prev);
     };
 
 
@@ -200,11 +207,6 @@ export default function MainView() {
 
         <div className={classes.root}>
             {/* beerData.filter(d => d.id === selectedBeerId) */}
-
-
-
-
-
             <Modal
                 aria-labelledby="spring-modal-title"
                 aria-describedby="spring-modal-description"
@@ -216,19 +218,18 @@ export default function MainView() {
                 BackdropProps={{
                     timeout: 500,
                 }}
-
-
             >
                 <Fade in={open}>
                     <Button onClick={handleClose} variant="contained" color="primary">close</Button>
+
                     {
-                        beerData.filter(d => d.id === selectedBeerId).map(({ id, name, image_url, abv, tagline, description }) => (
+                        beerData.filter(d => d.id === selectedBeerId).map(({ id, name, image_url, abv, tagline, description, food_pairing }) => (
                             <Card className={classes.root2}>
                                 <div className={classes.details}>
                                     <CardContent className={classes.content}>
                                         <Box component="p" align="center" fontWeight="fontWeightBold">
                                             <Typography variant="h4">
-                                                {name}   
+                                                {name}
                                             </Typography>
                                         </Box>
                                         <Typography variant="body2" component="p" align="center">
@@ -238,23 +239,51 @@ export default function MainView() {
                                             {abv}%
                                         </Typography>
                                         <br />
-                                        <Collapse in={open2} timeout="auto" unmountOnExit>
+                                        <Collapse in={ExpandDescription} timeout="auto" unmountOnExit>
                                             <div className={classes.container}>
                                                 <div className={classes.root}>
                                                     <div className={classes.container}>
-                                                        <Collapse in={checked}>
+                                                        <Collapse in={selectedShowDescription}>
                                                             Description:
                                                         </Collapse>
-                                                        <Collapse in={checked} collapsedHeight={40}>
+                                                        <Collapse in={selectedShowDescription} collapsedHeight={40}>
                                                             <Typography variant="body2" component="p">
                                                                 {description}
                                                             </Typography>
                                                         </Collapse>
                                                     </div>
-                                                    <FormControlLabel
-                                                        control={<Switch checked={checked} onChange={handleCollapse} />}
-                                                        label="Read More"
-                                                    />
+                                                    <ToggleButton onChange={handleCollapseDescription}
+                                                    style={{border: 'none'}}
+                                                        selected={selectedShowDescription}>
+
+                                                        {selectedShowDescription ? 'Less' : 'More'}
+
+                                                    </ToggleButton>
+                                                </div>
+                                            </div>
+                                        </Collapse>
+                                        <Collapse in={ExpandPairings} timeout="auto" unmountOnExit>
+                                            <div className={classes.container}>
+                                                <div className={classes.root}>
+                                                    <div className={classes.container}>
+                                                        <Collapse in={selectedShowPairings}>
+                                                            Perfect Pairings:
+                                                        </Collapse>
+                                                        <Collapse in={selectedShowPairings} collapsedHeight={40}>
+                                                            <Typography variant="body2" component="p">
+                                                                {food_pairing}
+                                                            </Typography>
+                                                        </Collapse>
+                                                    </div>
+                                                    <ToggleButton onChange={handleCollapseDPairings}
+                                                    style={{border: 'none'}}
+                                                        selected={selectedShowPairings}>
+
+                                                        {selectedShowPairings ? 'Less' : 'More'}
+
+                                                    </ToggleButton>
+                                                    <Button onClick={handleClose} fullWidth variant="contained" color="secondary">Buy Now</Button>
+
                                                 </div>
                                             </div>
                                         </Collapse>
@@ -268,6 +297,7 @@ export default function MainView() {
                                 />
 
                             </Card>
+
                         ))
                     }
                 </Fade>
@@ -303,9 +333,9 @@ export default function MainView() {
                         <Grid container spacing={2}
                         >
                             {
+
                                 beerData.map(({ id, name, image_url, abv }) => (
                                     <Grid item xs={4}>
-
                                         <Card variant="outlined" id={id}>
                                             <CardActionArea value={id}
                                                 onClick={((e) => handleOpen(e, id))}
