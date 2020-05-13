@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Paper from '@material-ui/core/Paper';
-
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +11,7 @@ import FoodIcon from '@material-ui/icons/Restaurant';
 import DiscountIcon from '@material-ui/icons/MoneyOff';
 import SearchIcon from '@material-ui/icons/Search';
 import SubViews from '../SubViews/SubViews'
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,10 +50,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
   },
+  indicator: {
+    backgroundColor: theme.palette.background.paper,
+    height: '3px',
+
+  }
 }));
 
 
 export default function MainView() {
+
   const classes = useStyles();
   const theme = useTheme();
   const [view, setview] = React.useState(0);
@@ -67,23 +71,25 @@ export default function MainView() {
 
   const [value, setValue] = React.useState(0);
   const handleChangeIndex = (index) => {
-      setValue(index);
+    setValue(index);
   };
   const handleChange = (event, newValue) => {
-      setValue(newValue);
+    setValue(newValue);
   };
-
 
 
   return (
     <div className={classes.root}>
-         <AppBar position="static" color="default" >
+      <AppBar position="static" color="default" color="primary">
         <Box align="center" m={2}>Buy-A-Brew</Box>
         <Tabs
-          value={view} 
-          onChange={handleChangeView} 
-          aria-label="simple tabs example" 
+          value={view}
+          onChange={handleChangeView}
+          aria-label="simple tabs example"
           variant="fullWidth"
+          classes={{
+            indicator: classes.indicator
+          }}>
         >
           <Tab icon={<DrinkIcon />} {...a11yProps(0)} />
           <Tab icon={<FoodIcon />} {...a11yProps(0)} />
@@ -91,15 +97,15 @@ export default function MainView() {
           <Tab icon={<SearchIcon />} {...a11yProps(0)} />
         </Tabs>
       </AppBar>
-    <TabPanel value={view} index={0} m={0} p={0} dense>
-     <SubViews /> 
-    </TabPanel>
-    <TabPanel value={view} index={1}>
-    <SubViews /> 
-    </TabPanel>
-    <TabPanel value={view} index={2}>
-    <SubViews /> 
-    </TabPanel>
-  </div>
+      <TabPanel value={view} index={0}>
+      <SubViews />
+      </TabPanel>
+      <TabPanel value={view} index={1}>
+        <SubViews />
+      </TabPanel>
+      <TabPanel value={view} index={2}>
+        <SubViews />
+      </TabPanel>
+    </div>
   );
 }
