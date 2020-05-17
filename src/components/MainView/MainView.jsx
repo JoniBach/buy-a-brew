@@ -11,6 +11,13 @@ import FoodIcon from '@material-ui/icons/Restaurant';
 import DiscountIcon from '@material-ui/icons/MoneyOff';
 import SearchIcon from '@material-ui/icons/Search';
 import SubViews from '../SubViews/SubViews'
+import Draggable from 'react-draggable'; // The default
+import Card from '@material-ui/core/Card';
+import MaterialTable from "material-table";
+import Edit from '@material-ui/icons/Edit';
+import CartContext from '../../CartContext'
+
+
 
 
 function TabPanel(props) {
@@ -80,7 +87,7 @@ export default function MainView() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default" color="primary">
+      <AppBar position="sticky" color="default" color="primary">
         <Box align="center" m={2}>Buy-A-Brew</Box>
         <Tabs
           value={view}
@@ -90,7 +97,7 @@ export default function MainView() {
           classes={{
             indicator: classes.indicator
           }}>
-        >
+          >
           <Tab icon={<DrinkIcon />} {...a11yProps(0)} />
           <Tab icon={<FoodIcon />} {...a11yProps(0)} />
           <Tab icon={<DiscountIcon />}{...a11yProps(0)} />
@@ -98,7 +105,12 @@ export default function MainView() {
         </Tabs>
       </AppBar>
       <TabPanel value={view} index={0}>
-      <SubViews />
+      {/* <CartContext.Consumer> */}
+      {/* {context => ( */}
+
+        <SubViews />
+      {/* )} */}
+        {/* </CartContext.Consumer> */}
       </TabPanel>
       <TabPanel value={view} index={1}>
         <SubViews />
@@ -106,6 +118,7 @@ export default function MainView() {
       <TabPanel value={view} index={2}>
         <SubViews />
       </TabPanel>
+      
     </div>
   );
 }
