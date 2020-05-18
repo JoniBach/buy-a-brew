@@ -105,19 +105,19 @@ export const BeerModal = (props) => {
     const classes = useStyles();
     const [ExpandDescription, setExpandDescription] = React.useState(true);
     const [ExpandPairings, setExpandPairings] = React.useState(true);
-    const [selectedBeerId, setSelectedBeerId] =  useContext(CartContext);
+    const [newBeerFromId, setnewBeerFromId] =  useContext(CartContext);
 
-    console.log('Selected beer id', selectedBeerId)
+    console.log('Selected beer id', newBeerFromId)
 
     const handleOpen = (e, id) => {
         setOpen(true);
         console.log('open: ', id);
-        setSelectedBeerId(id);
+        setnewBeerFromId(id);
     };
 
     const handleClose = () => {
         setOpen(false);
-        // setSelectedBeerId(0);        
+        // setnewBeerFromId(0);        
 
     };
     const handleClick = () => {
@@ -159,7 +159,7 @@ export const BeerModal = (props) => {
                     <Button onClick={handleClose} variant="contained" color="primary">close</Button>
 
             
-{beerData.filter(d => d.id === selectedBeerId).map(({ id, name, image_url, abv, tagline, description, food_pairing }) => (
+{beerData.filter(d => d.id === newBeerFromId).map(({ id, name, image_url, abv, tagline, description, food_pairing }) => (
     <Card className={classes.root2}>
         <div className={classes.details}>
             <CardContent className={classes.content}>

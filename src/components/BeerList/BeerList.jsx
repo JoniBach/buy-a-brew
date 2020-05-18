@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 export const BeerList = (props) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(0);
-    const [selectedBeerId, setSelectedBeerId] = React.useState();
+    const [newBeerFromId, setnewBeerFromId] = React.useState();
 
     const database = [
         { name: "beer 01", price: 4, id: 1 }
@@ -35,7 +35,7 @@ export const BeerList = (props) => {
     const [cart, setCart] = useContext(CartContext)
 
     const addToCart = (e, id) => {
-        setSelectedBeerId(id);
+        setnewBeerFromId(id);
         console.log("clicked add to cart", id)
 
         const newBeer = beerData.filter(d => d.id === id)
@@ -53,7 +53,7 @@ export const BeerList = (props) => {
     const handleOpen = (e, id) => {
         setOpen(true);
         console.log('open: ', id);
-        setSelectedBeerId(id);
+        setnewBeerFromId(id);
     };
 
     return (
