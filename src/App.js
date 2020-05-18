@@ -1,6 +1,6 @@
 import React from 'react';
 import MainView from './components/MainView/MainView';
-import CartProvider from './CartProvider'
+import {CartProvider, CartContext} from './CartProvider'
 
 
 function App() {

@@ -11,11 +11,6 @@ import FoodIcon from '@material-ui/icons/Restaurant';
 import DiscountIcon from '@material-ui/icons/MoneyOff';
 import SearchIcon from '@material-ui/icons/Search';
 import SubViews from '../SubViews/SubViews'
-import Draggable from 'react-draggable'; // The default
-import Card from '@material-ui/core/Card';
-import MaterialTable from "material-table";
-import Edit from '@material-ui/icons/Edit';
-import CartContext from '../../CartContext'
 
 
 
