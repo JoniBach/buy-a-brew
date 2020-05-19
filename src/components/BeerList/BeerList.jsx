@@ -43,7 +43,14 @@ export const BeerList = (props) => {
         // {beerData.filter(d => d.id === 1).map(({ id, name, image_url, abv, tagline, description, food_pairing }) => (
 
 
-        const beer = {name: newBeer.map(e => e.name).toString(), price: 6 }
+        const beer = {
+            name: newBeer.map(e => e.name).toString(), 
+            price: 6,
+            image_url: newBeer.map(e => e.image_url).toString() ,
+            tagline: newBeer.map(e => e.tagline).toString() 
+
+        
+        }
         console.log('new beew', beer)
         setCart(curr => [...curr, beer]);
 

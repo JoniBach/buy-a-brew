@@ -132,15 +132,6 @@ export default function MainView() {
     return (
 
         <div className={classes.root}>
-            <CartContext.Consumer>
-                                {context => (
-
-                                        <Cart />
-                       
-
-
-                                )}
-                            </CartContext.Consumer>
             <Paper className={classes.root} >
                 <Tabs
                     value={value}
@@ -186,7 +177,7 @@ export default function MainView() {
                 </SwipeableViews>
             </ThemeProvider>
 
-            <Box className={classes.bottomOfScreen} style={{width: '100%'}}>
+            {/* <Box className={classes.bottomOfScreen} style={{width: '100%'}}>
 
                 <Draggable axis="y" handle="strong" bounds={{ top: -100, left: 0, right: 0, bottom: 0 }} >
                     <Card>
@@ -204,9 +195,7 @@ export default function MainView() {
                                 </Box>
                             </strong>
 
-
-
-                            {/* <TableContainer component={Paper}>
+                            <TableContainer component={Paper}>
                                 <Table >
 
                                     <TableBody >
@@ -244,15 +233,11 @@ export default function MainView() {
                                         ))}
                                     </TableBody>
                                 </Table>
-                            </TableContainer> */}
-
+                            </TableContainer>
                         </div>
-
-
-
                     </Card>
                 </Draggable>
-            </Box>
+            </Box> */}
 
             {/* <CartContext.Consumer>
 

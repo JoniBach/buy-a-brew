@@ -11,7 +11,8 @@ import FoodIcon from '@material-ui/icons/Restaurant';
 import DiscountIcon from '@material-ui/icons/MoneyOff';
 import SearchIcon from '@material-ui/icons/Search';
 import SubViews from '../SubViews/SubViews'
-
+import CartContext from '../../CartContext'
+import { Cart } from '../Cart/Cart';
 
 
 
@@ -82,8 +83,9 @@ export default function MainView() {
 
   return (
     <div className={classes.root}>
+                  <CartContext.Consumer>{context => (<Cart />)}</CartContext.Consumer>
+
       <AppBar position="sticky" color="default" color="primary">
-        <Box align="center" m={2}>Buy-A-Brew</Box>
         <Tabs
           value={view}
           onChange={handleChangeView}

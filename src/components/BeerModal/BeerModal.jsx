@@ -107,7 +107,7 @@ export const BeerModal = (props) => {
     const [ExpandPairings, setExpandPairings] = React.useState(true);
     const [newBeerFromId, setnewBeerFromId] =  useContext(CartContext);
 
-    console.log('Selected beer id', newBeerFromId)
+    // console.log('Selected beer id', newBeerFromId)
 
     const handleOpen = (e, id) => {
         setOpen(true);
