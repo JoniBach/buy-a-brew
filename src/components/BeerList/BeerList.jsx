@@ -1,9 +1,9 @@
-import { Typography, Backdrop, Box, Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Collapse, Grid, Modal, Snackbar } from '@material-ui/core';
+import { LinearProgress, Typography, Backdrop, Box, Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Collapse, Grid, Modal, Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CheckCircleOutlineOutlined, ShoppingCartOutlined } from '@material-ui/icons';
 import { Alert, ToggleButton } from '@material-ui/lab';
 import React, { useContext } from 'react';
-import { animated, useSpring } from 'react-spring/web.cjs'; 
+import { animated, useSpring } from 'react-spring/web.cjs';
 import { CartContext } from '../../CartProvider';
 import { ModalContext } from '../../ModalProvider';
 import { useFetch } from "../SubViews/hooks";
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     media: {
-        height: 150,
+        height: 220,
         display: 'flex',
 
     },
@@ -158,7 +158,7 @@ export const BeerList = (props) => {
 
     React.useEffect(() => {
         function progress() {
-            setCompleted((prevCompleted) => (prevCompleted >= 100 ? undefined : prevCompleted + 20));
+            setCompleted((prevCompleted) => (prevCompleted >= 100 ? undefined : prevCompleted + 30));
         }
 
         const timer = setInterval(progress, 200);
@@ -189,6 +189,7 @@ export const BeerList = (props) => {
                         <Card className={classes.root2}>
                             <div className={classes.details}>
                                 <CardContent className={classes.content}>
+
                                     <Box component="p" align="center" fontWeight="fontWeightBold">
                                         <Box variant="h4">
                                             {name}
@@ -199,8 +200,8 @@ export const BeerList = (props) => {
                                     </Box>
                                     <Box variant="body2" component="p" align="center">
                                         {abv}%
-                </Box>
-                                    <br />
+                                    </Box>
+                                    <hr />
                                     <Collapse in={ExpandDescription} timeout="auto" unmountOnExit>
                                         <div className={classes.container}>
                                             <div className={classes.root}>
@@ -294,12 +295,23 @@ export const BeerList = (props) => {
                                     <CardMedia
                                         className={classes.media}
                                         image={image_url} ></CardMedia>
-                                    <Typography variant="body2" component="p" align="center" fontWeight="fontWeightBold">
-                                        {name}
-                                    </Typography>
-                                    <Typography variant="body2" component="p" align="center">
-                                        {abv}%
-                                    </Typography>
+                                    <Box
+                                        display="flex"
+
+                                        height={150}
+                                        alignItems="center"
+                                    >
+                                        <Typography variant="body2" style={{ textAlign: 'center', width: '100%' }}>
+                                            {name}
+                                            
+                                            {!completed ? <hr /> : <LinearProgress size={10} variant="determinate" value={completed} style={{marginTop: 6, marginBottom: 6}} />}
+
+                                            {abv}%
+                                      </Typography>
+
+
+
+                                    </Box>
                                 </CardContent>
                             </CardActionArea>
                             <Button
@@ -311,8 +323,7 @@ export const BeerList = (props) => {
                                         isNaN(completed) ? <CheckCircleOutlineOutlined style={{ color: 'green' }} /> : <CircularProgress color="primary" size={20} variant="static" value={completed} />
                                 }
                             >
-                                   £6.00
-
+                                £6.00
                             </Button>
                         </Card>
                     </Grid>

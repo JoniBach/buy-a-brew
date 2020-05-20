@@ -166,7 +166,8 @@ export const Cart = () => {
                     :
                     <Box m={3}>
                         <Typography style={{ color: 'white' }} align="center" variant="h6">Total: £{totalPrice}</Typography>
-                        {!completed ? <div /> : <LinearProgress variant="determinate" value={completed} />
+                        {
+                        !completed ? <div /> : <LinearProgress variant="determinate" value={completed} />
                         }
                         <Button
                             onClick={submitBasket}
