@@ -44,10 +44,10 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 });
 
 Fade.propTypes = {
-  children: PropTypes.element,
-  in: PropTypes.bool.isRequired,
-  onEnter: PropTypes.func,
-  onExited: PropTypes.func,
+  // children: PropTypes.element,
+  // in: PropTypes.bool.isRequired,
+  // onEnter: PropTypes.func,
+  // onExited: PropTypes.func,
 };
 
 export default function SpringModal() {

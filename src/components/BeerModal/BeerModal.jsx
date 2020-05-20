@@ -164,16 +164,16 @@ export const BeerModal = (open) => {
                 //             <div className={classes.details}>
                 //                 <CardContent className={classes.content}>
                 //                     <Box component="p" align="center" fontWeight="fontWeightBold">
-                //                         <Typography variant="h4">
+                //                         <Box variant="h4">
                 //                             {name}
-                //                         </Typography>
+                //                         </Box>
                 //                     </Box>
-                //                     <Typography variant="body2" component="p" align="center">
+                //                     <Box variant="body2" component="p" align="center">
                 //                         {tagline}
-                //                     </Typography>
-                //                     <Typography variant="body2" component="p" align="center">
+                //                     </Box>
+                //                     <Box variant="body2" component="p" align="center">
                 //                         {abv}%
-                // </Typography>
+                // </Box>
                 //                     <br />
                 //                     <Collapse in={ExpandDescription} timeout="auto" unmountOnExit>
                 //                         <div className={classes.container}>
@@ -183,9 +183,9 @@ export const BeerModal = (open) => {
                 //                                         Description:
                 //                 </Collapse>
                 //                                     <Collapse in={selectedShowDescription} collapsedHeight={40}>
-                //                                         <Typography variant="body2" component="p">
+                //                                         <Box variant="body2" component="p">
                 //                                             {description}
-                //                                         </Typography>
+                //                                         </Box>
                 //                                     </Collapse>
                 //                                 </div>
                 //                                 <ToggleButton onChange={handleCollapseDescription}
@@ -206,9 +206,9 @@ export const BeerModal = (open) => {
                 //                                         Perfect Pairings:
                 //                                     </Collapse>
                 //                                     <Collapse in={selectedShowPairings} collapsedHeight={40}>
-                //                                         <Typography variant="body2" component="p">
+                //                                         <Box variant="body2" component="p">
                 //                                             {food_pairing}
-                //                                         </Typography>
+                //                                         </Box>
                 //                                     </Collapse>
                 //                                 </div>
                 //                                 <ToggleButton onChange={handleCollapseDPairings}

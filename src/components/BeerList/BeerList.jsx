@@ -1,4 +1,4 @@
-import { Backdrop, Box, Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Collapse, Grid, Modal, Snackbar, Typography } from '@material-ui/core';
+import { Typography, Backdrop, Box, Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Collapse, Grid, Modal, Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { CheckCircleOutlineOutlined, ShoppingCartOutlined } from '@material-ui/icons';
 import { Alert, ToggleButton } from '@material-ui/lab';
@@ -190,16 +190,16 @@ export const BeerList = (props) => {
                             <div className={classes.details}>
                                 <CardContent className={classes.content}>
                                     <Box component="p" align="center" fontWeight="fontWeightBold">
-                                        <Typography variant="h4">
+                                        <Box variant="h4">
                                             {name}
-                                        </Typography>
+                                        </Box>
                                     </Box>
-                                    <Typography variant="body2" component="p" align="center">
+                                    <Box variant="body2" component="p" align="center">
                                         {tagline}
-                                    </Typography>
-                                    <Typography variant="body2" component="p" align="center">
+                                    </Box>
+                                    <Box variant="body2" component="p" align="center">
                                         {abv}%
-                </Typography>
+                </Box>
                                     <br />
                                     <Collapse in={ExpandDescription} timeout="auto" unmountOnExit>
                                         <div className={classes.container}>
@@ -294,9 +294,9 @@ export const BeerList = (props) => {
                                     <CardMedia
                                         className={classes.media}
                                         image={image_url} ></CardMedia>
-                                    <Box variant="body2" component="p" align="center" fontWeight="fontWeightBold">
+                                    <Typography variant="body2" component="p" align="center" fontWeight="fontWeightBold">
                                         {name}
-                                    </Box>
+                                    </Typography>
                                     <Typography variant="body2" component="p" align="center">
                                         {abv}%
                                     </Typography>

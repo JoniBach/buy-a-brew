@@ -1,11 +1,11 @@
 import { Grid } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
+
 import { green, red, yellow } from '@material-ui/core/colors';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
@@ -48,7 +48,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box p={3}>
-                    <Typography>{children}</Typography>
+                    <Box>{children}</Box>
                 </Box>
             )}
         </div>
@@ -56,13 +56,13 @@ function TabPanel(props) {
 }
 
 TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.any.isRequired,
-    value: PropTypes.any.isRequired,
-    children: PropTypes.element,
-    in: PropTypes.bool.isRequired,
-    onEnter: PropTypes.func,
-    onExited: PropTypes.func,
+    // children: PropTypes.node,
+    // index: PropTypes.any.isRequired,
+    // value: PropTypes.any.isRequired,
+    // children: PropTypes.element,
+    // in: PropTypes.bool.isRequired,
+    // onEnter: PropTypes.func,
+    // onExited: PropTypes.func,
 };
 
 function a11yProps(index) {

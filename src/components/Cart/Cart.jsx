@@ -1,4 +1,4 @@
-import { AppBar, Badge, Box, Button, IconButton, LinearProgress, Paper, Snackbar, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar, Typography } from '@material-ui/core';
+import {Typography, AppBar, Badge, Button, IconButton, LinearProgress, Paper, Snackbar, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar, Box } from '@material-ui/core';
 import Collapse from '@material-ui/core/Collapse';
 import { red } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
