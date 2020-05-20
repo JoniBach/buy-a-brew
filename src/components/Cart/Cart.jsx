@@ -1,13 +1,11 @@
-import React, { useContext, setState, useState } from 'react';
-import { CartContext } from '../../CartProvider';
-import { Snackbar, LinearProgress, AppBar, Toolbar, Typography, Grid, Card, CardContent, CardMedia, Button, Chip, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Badge, Paper, Box, IconButton, ButtonGroup } from '@material-ui/core';
-import { Remove, Add, Delete, ShoppingCart } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { AppBar, Badge, Box, Button, IconButton, LinearProgress, Paper, Snackbar, Table, TableBody, TableCell, TableContainer, TableRow, Toolbar, Typography } from '@material-ui/core';
 import Collapse from '@material-ui/core/Collapse';
 import { red } from '@material-ui/core/colors';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Alert, ToggleButton } from '@material-ui/lab';
+import { makeStyles } from '@material-ui/core/styles';
+import { Delete, ShoppingCart } from '@material-ui/icons';
+import { Alert } from '@material-ui/lab';
+import React, { useContext } from 'react';
+import { CartContext } from '../../CartProvider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,11 +42,9 @@ function MuiAlert(props) {
 export const Cart = () => {
     const classes = useStyles();
 
-    const [cart, setCart] = useContext(CartContext)
-    const [count, setCount] = useState([]);
-    const beerPrice = 4;
+    const [cart] = useContext(CartContext)
     const [newBeerFromId, setnewBeerFromId] = useContext(CartContext);
-    const removeBeer = (e, id) => {
+    const removeBeer = () => {
         setnewBeerFromId([])
     }
     const [expanded, setExpanded] = React.useState(false);
@@ -59,7 +55,7 @@ export const Cart = () => {
     const [completed, setCompleted] = React.useState(100);
     const [NotifyCheckoutComplete, setNotifyCheckoutComplete] = React.useState(false);
     const [onFirstLoad, setOnFirstLoad] = React.useState();
-    const handleCloseNotifyCheckoutComplete = (event, reason) => {
+    const handleCloseNotifyCheckoutComplete = (reason) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -70,7 +66,6 @@ export const Cart = () => {
         setOnFirstLoad(1)
         setCompleted(0)
     }
-    console.log(onFirstLoad)
     React.useEffect(() => {
         function progress() {
             setCompleted((oldCompleted) => {

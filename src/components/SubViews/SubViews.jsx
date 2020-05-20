@@ -1,20 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import { Grid, Card} from '@material-ui/core';
-import Draggable from 'react-draggable'; 
-import CartContext from '../../CartContext'
-import { Cart } from '../Cart/Cart';
-import { BeerList } from '../BeerList/BeerList'
-import { BeerModal } from '../BeerModal/BeerModal'
-import { red, yellow, green } from '@material-ui/core/colors';
-import theme from '../../theme';
+import { green, red, yellow } from '@material-ui/core/colors';
+import Paper from '@material-ui/core/Paper';
+import { createMuiTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
+import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
+import CartContext from '../../CartContext';
+import { BeerList } from '../BeerList/BeerList';
 
 const colors = {
     primary: red[500],
@@ -131,7 +127,7 @@ const useStyles = makeStyles((theme) => ({
     bottomOfScreen: {
 
         position: "fixed",
-        bottom: theme.spacing.unit * -13,
+        bottom: theme.spacing(-13),
     }
 }));
 

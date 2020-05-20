@@ -1,13 +1,11 @@
 // import CartContext from './CartContext';
-import React, { useState, useContext } from 'react'
-import { CartContext } from '../../CartProvider'
-import { ModalContext } from '../../ModalProvider'
-import { Beer } from '../Beer/Beer'
+import { Backdrop, Button, Modal } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Alert } from '@material-ui/lab';
+import React, { useContext } from 'react';
+import { animated, useSpring } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
+import { ModalContext } from '../../ModalProvider';
 import { useFetch } from "../SubViews/hooks";
-import { Button, Modal, Backdrop, Snackbar, Grid, Card, CardContent, CardMedia, Collapse, CardActionArea, Box, Typography } from '@material-ui/core';
-import { makeStyles, useTheme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { Alert, ToggleButton } from '@material-ui/lab';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const { in: open, children, onEnter, onExited, ...other } = props;

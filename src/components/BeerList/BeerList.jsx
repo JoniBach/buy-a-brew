@@ -1,17 +1,13 @@
-// import CartContext from './CartContext';
-import React, { useState, useContext } from 'react'
-import { CartContext } from '../../CartProvider'
-
-import { Beer } from '../Beer/Beer'
-import { useFetch } from "../SubViews/hooks";
-import { Modal, Backdrop, Button, Grid, Card, CardContent, Snackbar, Collapse, CardMedia, CardActionArea, Box, Typography, CircularProgress } from '@material-ui/core';
-import { makeStyles, useTheme, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { ModalContext } from '../../ModalProvider';
-import { BeerModal } from '../BeerModal/BeerModal'
+import { Backdrop, Box, Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Collapse, Grid, Modal, Snackbar, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { CheckCircleOutlineOutlined, ShoppingCartOutlined } from '@material-ui/icons';
 import { Alert, ToggleButton } from '@material-ui/lab';
-import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
-import { Remove, Add, Delete, ShoppingCartOutlined, CheckCircleOutlineOutlined } from '@material-ui/icons';
-import { red, yellow, green } from '@material-ui/core/colors';
+import React, { useContext } from 'react';
+import { animated, useSpring } from 'react-spring/web.cjs'; 
+import { CartContext } from '../../CartProvider';
+import { ModalContext } from '../../ModalProvider';
+import { useFetch } from "../SubViews/hooks";
+
 
 const Fade = React.forwardRef(function Fade(props, ref) {
     const { in: open, children, onEnter, onExited, ...other } = props;
@@ -104,8 +100,8 @@ export const BeerList = (props) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [newBeerFromId, setnewBeerFromId] = useContext(ModalContext);
-    const [ExpandDescription, setExpandDescription] = React.useState(true);
-    const [ExpandPairings, setExpandPairings] = React.useState(true);
+    const [ExpandDescription] = React.useState(true);
+    const [ExpandPairings] = React.useState(true);
     const handleClose = () => {
         setOpen(false);
         // setnewBeerFromId(0);        
@@ -315,10 +311,6 @@ export const BeerList = (props) => {
                                         isNaN(completed) ? <CheckCircleOutlineOutlined style={{ color: 'green' }} /> : <CircularProgress color="primary" size={20} variant="static" value={completed} />
                                 }
                             >
-
-                                {/* {!notifyAddToCart ? "£6.00" : 
-                                isNaN(completed)  ? <Typography style={{color: 'green'}} >Done</Typography> : "£6.00" } 
-                             */}
                                    £6.00
 
                             </Button>
