@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/buy-a-brew/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/buy-a-brew/static/js/main.e06d24c7.chunk.js",
-    "main.js.map": "/buy-a-brew/static/js/main.e06d24c7.chunk.js.map",
+    "main.js": "/buy-a-brew/static/js/main.63103b9e.chunk.js",
+    "main.js.map": "/buy-a-brew/static/js/main.63103b9e.chunk.js.map",
     "runtime-main.js": "/buy-a-brew/static/js/runtime-main.471c7a0c.js",
     "runtime-main.js.map": "/buy-a-brew/static/js/runtime-main.471c7a0c.js.map",
     "static/js/2.24572e5b.chunk.js": "/buy-a-brew/static/js/2.24572e5b.chunk.js",
     "static/js/2.24572e5b.chunk.js.map": "/buy-a-brew/static/js/2.24572e5b.chunk.js.map",
     "index.html": "/buy-a-brew/index.html",
-    "precache-manifest.94887e09068c4221dc9bb0f090e81a85.js": "/buy-a-brew/precache-manifest.94887e09068c4221dc9bb0f090e81a85.js",
+    "precache-manifest.b2a4a510f8a343712651609c061fac90.js": "/buy-a-brew/precache-manifest.b2a4a510f8a343712651609c061fac90.js",
     "service-worker.js": "/buy-a-brew/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/buy-a-brew/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.24572e5b.chunk.js.LICENSE.txt": "/buy-a-brew/static/js/2.24572e5b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.471c7a0c.js",
     "static/js/2.24572e5b.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.e06d24c7.chunk.js"
+    "static/js/main.63103b9e.chunk.js"
   ]
 }
