@@ -13,11 +13,30 @@ import CartContext from '../../CartContext'
 import { Cart } from '../Cart/Cart';
 import { BeerList } from '../BeerList/BeerList'
 import { BeerModal } from '../BeerModal/BeerModal'
+import { red, yellow, green } from '@material-ui/core/colors';
+import theme from '../../theme';
 
+const colors = {
+    primary: red[500],
+    secondary: yellow[500],
+    status: green[500],
+
+};
 const innerTheme = createMuiTheme({
     palette: {
         type: 'light',
-    }
+
+        primary: {
+            main: colors.primary,
+        },
+        secondary: {
+            main: colors.secondary,
+        },
+        status: {
+            main: colors.status,
+        },
+
+    },
 });
 
 function TabPanel(props) {
@@ -158,97 +177,19 @@ export default function MainView() {
                         >
                             <CartContext.Consumer>
                                 {context => (
-                                    <>
-                                        {/* <Cart /> */}
                                         <BeerList />
-                                        <BeerModal />
-
-                                    </>
                                 )}
                             </CartContext.Consumer>
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
-                        Some Beer
+                        Comming Soon...
                 </TabPanel>
                     <TabPanel value={value} index={2} dir={theme.direction}>
-                        Some Pizza
+                        Comming Soon...
                 </TabPanel>
                 </SwipeableViews>
             </ThemeProvider>
-
-            {/* <Box className={classes.bottomOfScreen} style={{width: '100%'}}>
-
-                <Draggable axis="y" handle="strong" bounds={{ top: -100, left: 0, right: 0, bottom: 0 }} >
-                    <Card>
-                        <div className="box no-cursor">
-                            <strong className="cursor">
-                                <Box mx={15} my={1}>
-                                    <div style={{
-                                        width: '100%',
-                                        background: 'grey',
-                                        borderRadius: '25px',
-                                        paddingLeft: '20'
-                                    }}>
-                                        &nbsp;
-                                </div>
-                                </Box>
-                            </strong>
-
-                            <TableContainer component={Paper}>
-                                <Table >
-
-                                    <TableBody >
-                                        {beerData.filter(d => d.id === 1).map(({ id, name, image_url, abv, tagline, description, food_pairing }) => (
-                                            <TableRow key={id}>
-                                                <TableCell component="th" scope="row">
-                                                    <Badge badgeContent={"£" + totalBeerPrice} color="secondary">
-                                                        <img src={image_url} alt={name} height="42" width="42"></img>
-                                                    </Badge>
-                                                </TableCell>
-                                                <TableCell align="left">
-                                                    {name}
-                                                    <br />
-                                                    {tagline}
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <Box display="flex" flexDirection="row" >
-                                                        <IconButton variant="contained" color="secondary" onClick={() => setCount(count - 1)}>
-                                                            <RemoveIcon />
-                                                        </IconButton>
-                                                        <Box width={30} style={{ textAlign: 'center', paddingTop: 10 }}>{count}</Box>
-
-                                                        <IconButton width={10} variant="contained" color="secondary" onClick={() => setCount(count + 1)}>
-                                                            <AddIcon />
-                                                        </IconButton>
-                                                    </Box>
-                                                </TableCell>
-                                                <TableCell align="right">
-                                                    <IconButton aria-label="delete">
-                                                        <DeleteIcon />
-                                                    </IconButton>
-                                                </TableCell>
-
-                                            </TableRow>
-                                        ))}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </div>
-                    </Card>
-                </Draggable>
-            </Box> */}
-
-            {/* <CartContext.Consumer>
-
-                {context => (
-                    Object.keys(context.beers).map(id => (
-                        <p>{context.beers[id].name}</p>
-                    ))
-                )}
-            </CartContext.Consumer> */}
-
-
         </div>
     );
 }

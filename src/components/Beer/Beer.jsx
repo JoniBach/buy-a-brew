@@ -6,10 +6,8 @@ export const Beer = (props) => {
     const [cart, setCart] = useContext(CartContext)
 
     const addToCart = () => {
-        console.log("clicked add to cart")
         const beer = {name: props.name, price: 5}
         setCart(curr => [...curr, beer]);
-
     }
     return (
         <div>

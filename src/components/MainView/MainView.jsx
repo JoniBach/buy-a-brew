@@ -70,8 +70,6 @@ export default function MainView() {
   const handleChangeView = (event, newview) => {
     setview(newview);
   };
-
-
   const [value, setValue] = React.useState(0);
   const handleChangeIndex = (index) => {
     setValue(index);
@@ -79,12 +77,9 @@ export default function MainView() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-
   return (
     <div className={classes.root}>
-                  <CartContext.Consumer>{context => (<Cart />)}</CartContext.Consumer>
-
+      <CartContext.Consumer>{context => (<Cart />)}</CartContext.Consumer>
       <AppBar position="sticky" color="default" color="primary">
         <Tabs
           value={view}
@@ -102,20 +97,15 @@ export default function MainView() {
         </Tabs>
       </AppBar>
       <TabPanel value={view} index={0}>
-      {/* <CartContext.Consumer> */}
-      {/* {context => ( */}
-
         <SubViews />
-      {/* )} */}
-        {/* </CartContext.Consumer> */}
       </TabPanel>
       <TabPanel value={view} index={1}>
-        <SubViews />
+      <SubViews />
       </TabPanel>
       <TabPanel value={view} index={2}>
         <SubViews />
       </TabPanel>
-      
+
     </div>
   );
 }
