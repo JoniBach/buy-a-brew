@@ -85,7 +85,6 @@ export const Cart = () => {
             clearInterval(timer);
         };
     }, []);
-
     return (
 
         <div>
